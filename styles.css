@@ -1,8 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+
 form { 
     margin: 0px;
-    margin-top: 5px;
+    margin-top: 50px;
+    margin-left: 350px;
     width: 600px;
-    background-color: #c2c2c2;
+    
     
 }
 div.form-group > label,
@@ -11,6 +20,12 @@ div.form-group > input{
     width: 100%;
     margin-bottom: 12px;
 }
+
+div.form-group:first-child
+{padding-top: 20px;    
+}
+
+
 
 input {
     padding: 6px 3px;
