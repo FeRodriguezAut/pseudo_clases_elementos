@@ -1,19 +1,21 @@
-button {
-    display: block; 
-    margin: 0px auto;
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: 1px solid darkblue;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
+form { 
+    margin: 0px;
+    margin-top: 5px;
+    width: 600px;
+    background-color: #c2c2c2;
+    
 }
-button:hover {
-    background-color: darkblue;
-    color: lightblue;
-    border: 1px solid blue;
+div.form-group > label,
+div.form-group > input{
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
 }
-   
+
+input {
+    padding: 6px 3px;
+    width: 90%;
+
+}
+
+
