@@ -1,0 +1,19 @@
+button {
+    display: block; 
+    margin: 0px auto;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid darkblue;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: darkblue;
+    color: lightblue;
+    border: 1px solid blue;
+}
+   
