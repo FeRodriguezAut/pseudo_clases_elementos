@@ -11,6 +11,12 @@ body {
     color: #333; /* Un color de texto gris oscuro en lugar de negro puro */
 }
 
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Espacio interno */
+}
+
 form { 
     /* Centrado y espaciado: */
     margin: 50px auto; /* 50px arriba/abajo, 'auto' a los lados para centrarlo */
@@ -22,6 +28,7 @@ form {
     border: 1px solid #ddd; /* Un borde sutil */
     border-radius: 8px; /* Esquinas redondeadas para un look más suave */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una sombra para darle profundidad */
+    transition: background-color 0.4s ease; /* ¡Añade esta línea! */
 }
 div.form-group > label,
 div.form-group > input{
@@ -47,7 +54,7 @@ div.form-group > input {
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
-/* AÑADIMOS un nuevo selector para el efecto :focus */
+
 div.form-group > input:focus {
     border-color: #007bff; /* Cambia el color del borde a azul */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade un resplandor azul */
@@ -101,10 +108,7 @@ button:hover {
     transform: translateY(-2px); /* Levanta un poco el botón */
 }
 
-/* Efecto al hacer clic en el botón */
-button:active {
-    transform: translateY(1px); /* El botón se hunde ligeramente */
-}
+
 
 button[type="submit"] {
     width: 100%;
@@ -123,4 +127,42 @@ button[type="submit"] {
 /* Efecto al pasar el cursor por encima */
 button[type="submit"]:hover {
     background-color: #03310d; /* Un verde un poco más oscuro */
+}
+
+/* Estilos para el nuevo checkbox y label fuera del formulario */
+.standalone-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio debajo del checkbox */
+    width: 600px;
+    margin: 20px auto 10px auto;
+}
+
+.standalone-check input {
+    width: auto; /* El checkbox no ocupa todo el ancho */
+    margin-right: 10px; /* Espacio a la derecha del checkbox */
+}
+
+.standalone-check label {
+    margin-bottom: 0; /* Quitamos el margen inferior */
+    cursor: pointer; /* El cursor es una mano al pasar sobre el label */
+}
+
+/* Cambio de color para el formulario cuando el checkbox está marcado */
+input#color-toggle:checked ~ form {
+    background-color: #d4edda; /* Un verde pastel muy suave */
+    border-color: #c3e6cb; /* Un borde que combine */
+}
+
+#color-toggle:checked ~ form div.form-group > input {
+    border-color: #66bb6a; /* Borde verde más oscuro en los inputs */
+}
+
+#color-toggle:checked ~ form button {
+    background-color: #218838; /* Un verde más oscuro para el botón */
+    border-color: #1e7e34; /* Borde verde más oscuro */
+}
+
+#color-toggle:checked ~ form button:hover {
+    background-color: #1c7430; /* Verde aún más oscuro al pasar el ratón */
 }
