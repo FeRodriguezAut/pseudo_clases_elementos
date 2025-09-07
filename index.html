@@ -3,100 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pseudo-clases y Elementos</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* 1. Simplificamos el selector 'form' para que solo posicione */
-        form { 
-            margin: 50px auto;
-            width: 600px;
-            position: relative; /* Necesario para algunos trucos de posicionamiento */
-        }
-
-        /* 2. Creamos el nuevo selector para el contenedor visual */
-        .form-content-wrapper {
-            padding: 30px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.4s ease; /* La transición va aquí */
-        }
-
-        /* 3. Ocultamos el checkbox real, ya que usaremos su label para controlarlo */
-        .color-toggle-checkbox {
-            display: none;
-        }
-
-        /* 4. Damos estilo al label que parece un checkbox */
-        .color-toggle-label {
-            display: block;
-            margin-top: 20px; /* Espacio entre el formulario y este texto */
-            cursor: pointer;
-            position: relative;
-            padding-left: 35px; /* Espacio para nuestro falso checkbox */
-            font-size: 16px;
-        }
-
-        /* 5. Creamos el CUADRADO del falso checkbox usando ::before */
-        .color-toggle-label::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #aaa;
-            border-radius: 3px;
-            background-color: white;
-            transition: all 0.2s ease;
-        }
-
-        /* 6. Creamos la MARCA de verificación (el "chulito") usando ::after */
-        .color-toggle-label::after {
-            content: '✔';
-            position: absolute;
-            left: 4px;
-            top: 0px;
-            font-size: 18px;
-            color: white;
-            opacity: 0; /* Oculto por defecto */
-            transform: scale(0.5);
-            transition: all 0.2s ease;
-        }
-
-      
-        /* Cuando el checkbox oculto está :checked, afecta a sus hermanos */
-
-        /* Cambia el fondo del cuadrado del falso checkbox */
-        .color-toggle-checkbox:checked + .form-content-wrapper + .color-toggle-label::before {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
-
-        /* Muestra la marca de verificación */
-        .color-toggle-checkbox:checked + .form-content-wrapper + .color-toggle-label::after {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ¡Y cambia el color de fondo del contenedor del formulario! */
-        .color-toggle-checkbox:checked + .form-content-wrapper {
-            background-color: #63fc84; /* Un verde pastel muy sutil */
-        }
-    </style>
 </head>
 <body>
-    <form action="">
 
-        -->
+    <div class="theme-switcher">
         <input type="checkbox" id="color-toggle" class="color-toggle-checkbox">
-        
-->
+        <label for="color-toggle" class="color-toggle-label"></label>
+    </div>
+
+    <form action="">
         <div class="form-content-wrapper">
             <div class="form-group">
                 <label for="Nombre">Nombre</label>
-                <input type="text" id="Nombre" name="Nombre">
+                <input type="text" id="Nombre" name="Nombre" required>
             </div>
             <div class="form-group">
                 <label for="Apellidos">Apellidos</label>
@@ -108,12 +29,22 @@
             </div>
             <div class="form-group">
                 <label for="CorreoElectronico">Correo Electronico</label>
-                <input type="text" id="CorreoElectronico" name="CorreoElectronico">
+                <input type="email" id="CorreoElectronico" name="CorreoElectronico" required>
             </div>
             <button type="submit">Enviar Registro</button>
         </div>
-
-        <label for="color-toggle" class="color-toggle-label">Check</label>
     </form>
+
+    <div class="enlace-ayuda">
+        <a href="#ayuda">¿Necesitas ayuda?</a>
+    </div>
+
+    <div id="ayuda" class="caja-ayuda">
+        <h3>¡Aquí está tu ayuda!</h3>
+        <p>La pseudo-clase <code>:target</code> de CSS se activa cuando el ID de un elemento coincide con el ancla (#) de la URL.</p>
+        <p>Esto te permite mostrar u ocultar elementos sin usar JavaScript. ¡Es genial para modales simples, pop-ups o secciones de FAQ!</p>
+        <a href="#" class="cerrar">Cerrar</a>
+    </div>
+
 </body>
 </html>

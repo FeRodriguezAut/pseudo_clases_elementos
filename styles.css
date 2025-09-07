@@ -17,6 +17,50 @@ body {
     padding: 20px; /* Espacio interno */
 }
 
+/* --- ESTILOS DEL INTERRUPTOR DE TEMA --- */
+.theme-switcher {
+    width: 600px; /* Mismo ancho que el form */
+    margin: 20px auto -30px; /* Margen para posicionarlo sobre el form */
+    text-align: right; /* Alinea el interruptor a la derecha */
+}
+
+.color-toggle-checkbox {
+    display: none; /* Ocultamos el checkbox real */
+}
+
+.color-toggle-label {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.color-toggle-label::after {
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.color-toggle-checkbox:checked + .color-toggle-label {
+    background-color: #28a745; /* Verde cuando está activo */
+}
+
+.color-toggle-checkbox:checked + .color-toggle-label::after {
+    transform: translateX(25px); /* Mueve el círculo */
+}
+/* --- FIN DE ESTILOS DEL INTERRUPTOR --- */
+
+
 form { 
     /* Centrado y espaciado: */
     margin: 50px auto; /* 50px arriba/abajo, 'auto' a los lados para centrarlo */
@@ -37,8 +81,15 @@ div.form-group > input{
     margin-bottom: 12px;
 }
 
-div.form-group:first-child
-{padding-top: 20px;    
+div.form-group:first-child {
+    padding-top: 20px;
+    border-top: 3px solid #007bff; /* Línea superior azul para destacarlo */
+    background-color: #f0f8ff;   /* Un fondo ligeramente diferente */
+    margin-left: -30px; /* Extiende el fondo hasta el borde del <form> */
+    margin-right: -30px; /* Extiende el fondo hasta el borde del <form> */
+    padding-left: 30px; /* Devuelve el padding que quitó el margen */
+    padding-right: 30px; /* Devuelve el padding que quitó el margen */
+    border-radius: 8px 8px 0 0; /* Redondea solo las esquinas superiores */
 }
 
 
@@ -56,10 +107,10 @@ div.form-group > input {
 
 
 div.form-group > input:focus {
-    border-color: #007bff; /* Cambia el color del borde a azul */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade un resplandor azul */
-    outline: none; /* Quitamos el resplandor por defecto del navegador */
-}
+    outline: none;
+    border-color: #007bff; 
+    border-width: 2px;     
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); 
 
 div.form-check {
     display: flex; 
@@ -165,4 +216,75 @@ input#color-toggle:checked ~ form {
 
 #color-toggle:checked ~ form button:hover {
     background-color: #1c7430; /* Verde aún más oscuro al pasar el ratón */
+}
+
+.enlace-ayuda {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.enlace-ayuda a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.enlace-ayuda a:hover {
+    color: #0056b3;
+}
+
+/* 1. Ocultamos la caja de ayuda por defecto */
+.caja-ayuda {
+    display: none;
+    background-color: #ffffe0; /* Amarillo claro */
+    border: 1px solid #e6e6a8;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* 2. La magia: Cuando la caja es el :target, la mostramos */
+.caja-ayuda:target {
+    display: block;
+}
+
+.caja-ayuda h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.caja-ayuda .cerrar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.caja-ayuda .cerrar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para campos de formulario inválidos */
+input:invalid {
+  border-color: #e53e3e; /* Borde rojo para indicar error */
+}
+
+input:invalid:focus {
+    box-shadow: 0 0 5px rgba(229, 62, 62, 0.5); /* Resplandor rojo al hacer foco */
+}
+
+/* --- Estilo para campos de tipo email --- */
+input[type="email"] {
+    background-image: url('https://api.iconify.design/material-symbols/mail-outline.svg?color=%23888');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 35px; /* Espacio para que el texto no se solape con el icono */
 }
