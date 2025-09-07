@@ -1,31 +1,66 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+/* --- VARIABLES GLOBALES --- */
+:root {
+    --color-primario: #007bff;
+    --color-primario-hover: #0056b3;
+    --color-verde-ok: #28a745;
+    --color-verde-ok-hover: #218838;
+    --color-error: #e53e3e;
+    --color-nav-fondo: #34495e;
+}
 
+/* --- ESTILOS GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #eef1f5; /* Un fondo de página gris azulado muy claro */
-    color: #333; /* Un color de texto gris oscuro en lugar de negro puro */
+    background-color: #eef1f5;
+    color: #333;
+    transition: background-color 0.4s ease;
 }
 
-.container {
-    max-width: 800px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centrado horizontal */
-    padding: 20px; /* Espacio interno */
+/* --- NAVEGACIÓN PRINCIPAL --- */
+.main-nav {
+    background-color: var(--color-nav-fondo);
+    border-radius: 8px;
+    margin: 20px auto 0;
+    width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* --- ESTILOS DEL INTERRUPTOR DE TEMA --- */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: var(--color-primario);
+}
+
+/* --- INTERRUPTOR DE TEMA --- */
 .theme-switcher {
-    width: 600px; /* Mismo ancho que el form */
-    margin: 20px auto -30px; /* Margen para posicionarlo sobre el form */
-    text-align: right; /* Alinea el interruptor a la derecha */
+    width: 600px;
+    margin: 20px auto -40px;
+    text-align: right;
+    position: relative;
+    z-index: 10;
 }
 
 .color-toggle-checkbox {
-    display: none; /* Ocultamos el checkbox real */
+    display: none;
 }
 
 .color-toggle-label {
@@ -51,192 +86,133 @@ body {
     transition: transform 0.3s ease;
 }
 
-.color-toggle-checkbox:checked + .color-toggle-label {
-    background-color: #28a745; /* Verde cuando está activo */
-}
-
-.color-toggle-checkbox:checked + .color-toggle-label::after {
-    transform: translateX(25px); /* Mueve el círculo */
-}
-/* --- FIN DE ESTILOS DEL INTERRUPTOR --- */
-
-
-form { 
-    /* Centrado y espaciado: */
-    margin: 50px auto; /* 50px arriba/abajo, 'auto' a los lados para centrarlo */
+/* --- FORMULARIO --- */
+form {
+    margin: 50px auto;
     width: 600px;
-    
-    /* Estilos de la tarjeta: */
-    padding: 30px; /* Añade espacio interno para que los campos no toquen los bordes */
-    background-color: #f9f9f9; /* Un fondo gris muy claro para la tarjeta */
-    border: 1px solid #ddd; /* Un borde sutil */
-    border-radius: 8px; /* Esquinas redondeadas para un look más suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una sombra para darle profundidad */
-    transition: background-color 0.4s ease; /* ¡Añade esta línea! */
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
-div.form-group > label,
-div.form-group > input{
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group > label {
     display: block;
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-div.form-group:first-child {
-    padding-top: 20px;
-    border-top: 3px solid #007bff; /* Línea superior azul para destacarlo */
-    background-color: #f0f8ff;   /* Un fondo ligeramente diferente */
-    margin-left: -30px; /* Extiende el fondo hasta el borde del <form> */
-    margin-right: -30px; /* Extiende el fondo hasta el borde del <form> */
-    padding-left: 30px; /* Devuelve el padding que quitó el margen */
-    padding-right: 30px; /* Devuelve el padding que quitó el margen */
-    border-radius: 8px 8px 0 0; /* Redondea solo las esquinas superiores */
-}
-
-
-
-div.form-group > input {
+.form-group > input {
     display: block;
-    width: 100%; /* Cambiamos de 90% a 100% para que ocupe todo el espacio */
-    margin-bottom: 12px;
-    padding: 10px; /* Un poco más de padding para que sea más fácil escribir */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 4px; /* Esquinas redondeadas consistentes */
-    font-size: 16px; /* Tamaño de fuente más grande para legibilidad */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
 }
 
-
-div.form-group > input:focus {
-    outline: none;
-    border-color: #007bff; 
-    border-width: 2px;     
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); 
-
-div.form-check {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 12px; 
-}
-
-div.form-check > input {
-    width: auto; 
-    margin-right: 10px; 
-    margin-bottom: 0; 
-}
-
-/* Label con transición y un poco de estilo */
-div.form-check > label {
-    width: auto; 
-    margin-bottom: 0;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Estilo que se aplica al label cuando el checkbox está marcado */
-div.form-check > input:checked + label {
-    background-color: #28a745;
-    color: white;
-}
-
-button {
-    /* Estilos del botón: */
-    padding: 10px 20px; /* Espacio interno para el botón */
-    font-size: 16px; /* Tamaño de fuente del texto del botón */
-    color: white; /* Color del texto del botón */
-    background-color: #007bff; /* Color de fondo azul */
-    border: none; /* Sin borde */
-    border-radius: 4px; /* Esquinas redondeadas */
-    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
-    width: 100%; /* El botón ocupa todo el ancho del formulario */
-    margin-top: 10px; /* Un poco de margen arriba para separar del último campo */
-}
-
-/* Efecto al pasar el ratón sobre el botón */
-button:hover {
-    background-color: #0056b3; /* Un azul más oscuro */
-    transform: translateY(-2px); /* Levanta un poco el botón */
-}
-
-
-
+/* --- BOTÓN DE ENVIAR --- */
 button[type="submit"] {
+    position: relative; /* Contexto para el pseudo-elemento */
     width: 100%;
     padding: 12px;
-    background-color: #28a745; /* Mismo verde que el checkbox marcado */
+    background-color: var(--color-verde-ok);
     color: white;
     font-size: 18px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
-    cursor: pointer; /* El cursor se convierte en una mano */
-    margin-top: 10px; /* Espacio por encima del botón */
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.1s ease-in-out; /* Transición para el movimiento */
 }
 
-/* Efecto al pasar el cursor por encima */
+button[type="submit"]::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-verde-ok-hover);
+    border-radius: 5px;
+    z-index: -1; /* Lo ponemos detrás del botón */
+    transition: all 0.1s ease-in-out;
+}
+
 button[type="submit"]:hover {
-    background-color: #03310d; /* Un verde un poco más oscuro */
+    transform: translate(-4px, -4px); /* Movemos el botón */
 }
 
-/* Estilos para el nuevo checkbox y label fuera del formulario */
-.standalone-check {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px; /* Espacio debajo del checkbox */
-    width: 600px;
-    margin: 20px auto 10px auto;
+button[type="submit"]:hover::after {
+    transform: translate(4px, 4px); /* Movemos la sombra para que parezca más grande */
 }
 
-.standalone-check input {
-    width: auto; /* El checkbox no ocupa todo el ancho */
-    margin-right: 10px; /* Espacio a la derecha del checkbox */
+button[type="submit"]:active {
+    transform: translate(0, 0); /* Al hacer clic, el botón vuelve a su sitio */
 }
 
-.standalone-check label {
-    margin-bottom: 0; /* Quitamos el margen inferior */
-    cursor: pointer; /* El cursor es una mano al pasar sobre el label */
+button[type="submit"]:active::after {
+    transform: translate(0, 0); /* La sombra también, creando un efecto plano */
 }
 
-/* Cambio de color para el formulario cuando el checkbox está marcado */
-input#color-toggle:checked ~ form {
-    background-color: #d4edda; /* Un verde pastel muy suave */
-    border-color: #c3e6cb; /* Un borde que combine */
+
+/* --- ESTILOS DE PSEUDO-CLASES Y SELECTORES --- */
+
+/* 1. :first-child para el primer grupo */
+div.form-group:first-child {
+    border-top: 2px solid var(--color-primario);
+    background-color: #f0f8ff;
+    margin: -30px -30px 12px -30px;
+    padding: 20px 30px 12px 30px;
+    border-radius: 8px 8px 0 0;
 }
 
-#color-toggle:checked ~ form div.form-group > input {
-    border-color: #66bb6a; /* Borde verde más oscuro en los inputs */
+/* 2. :focus para el campo activo */
+input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    border-width: 2px;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
 
-#color-toggle:checked ~ form button {
-    background-color: #218838; /* Un verde más oscuro para el botón */
-    border-color: #1e7e34; /* Borde verde más oscuro */
+/* 3. :invalid para campos con error */
+input:invalid {
+    border-color: var(--color-error);
 }
 
-#color-toggle:checked ~ form button:hover {
-    background-color: #1c7430; /* Verde aún más oscuro al pasar el ratón */
+input:invalid:focus {
+    border-color: var(--color-error);
+    box-shadow: 0 0 8px rgba(229, 62, 62, 0.6);
 }
 
-.enlace-ayuda {
+/* 4. Selector de atributo para tipo email */
+input[type="email"] {
+    background-image: url('https://api.iconify.design/material-symbols/mail-outline.svg?color=%23888');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 35px;
+}
+
+/* 5. :target para la caja de mensaje secreto */
+.enlace-secreto {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px auto;
+    width: 600px;
 }
 
-.enlace-ayuda a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.enlace-ayuda a:hover {
-    color: #0056b3;
-}
-
-/* 1. Ocultamos la caja de ayuda por defecto */
-.caja-ayuda {
+.caja-secreta {
     display: none;
-    background-color: #ffffe0; /* Amarillo claro */
+    background-color: #ffffe0;
     border: 1px solid #e6e6a8;
     border-radius: 8px;
     padding: 20px;
@@ -246,45 +222,138 @@ input#color-toggle:checked ~ form {
     text-align: center;
 }
 
-/* 2. La magia: Cuando la caja es el :target, la mostramos */
-.caja-ayuda:target {
+.caja-secreta:target {
     display: block;
 }
 
-.caja-ayuda h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-.caja-ayuda .cerrar {
+.caja-secreta .cerrar {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 15px;
-    background-color: #007bff;
+    background-color: var(--color-primario);
     color: white;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
-.caja-ayuda .cerrar:hover {
-    background-color: #0056b3;
+.caja-secreta .cerrar:hover {
+    background-color: var(--color-primario-hover);
 }
 
-/* Estilos para campos de formulario inválidos */
-input:invalid {
-  border-color: #e53e3e; /* Borde rojo para indicar error */
+/* 6. :only-of-type para elementos únicos */
+.caja-secreta h3:only-of-type {
+    color: #c0392b;
+    border-bottom: 2px solid #f1c40f;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-input:invalid:focus {
-    box-shadow: 0 0 5px rgba(229, 62, 62, 0.5); /* Resplandor rojo al hacer foco */
+/* 7. :first-of-type para el primer párrafo en la caja */
+.caja-secreta p:first-of-type {
+    font-weight: bold;
+    color: #34495e;
 }
 
-/* --- Estilo para campos de tipo email --- */
-input[type="email"] {
-    background-image: url('https://api.iconify.design/material-symbols/mail-outline.svg?color=%23888');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-    padding-right: 35px; /* Espacio para que el texto no se solape con el icono */
+/* 8. ::before para añadir un icono a los títulos de los campos */
+.form-group > label::before {
+    content: "► ";
+    color: var(--color-primario);
+    font-size: 0.9em;
+    margin-right: 6px;
+}
+
+/* 9. ::after para añadir una línea decorativa después de los párrafos */
+.caja-secreta p::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 1px;
+    background-color: #f1c40f;
+    margin: 15px auto 0;
+}
+
+/* --- INPUT CON ICONO INTERNO --- */
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon::before {
+    content: "🔍";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Permite hacer clic a través del icono */
+    color: #888;
+}
+
+.input-with-icon input[type="search"] {
+    padding-left: 35px;
+}
+
+
+/* --- ESTILOS PARA BLOQUE DE CITA --- */
+.cita-ejemplo {
+    position: relative;
+    width: 600px;
+    margin: 40px auto;
+    padding: 20px 40px;
+    border-left: 5px solid var(--color-primario);
+    background-color: #fdfdfd;
+    font-style: italic;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.cita-ejemplo p {
+    margin-bottom: 10px;
+}
+
+.cita-ejemplo footer {
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+    color: #555;
+}
+
+.cita-ejemplo::before, .cita-ejemplo::after {
+    position: absolute;
+    color: var(--color-primario);
+    font-size: 4em;
+    line-height: 1;
+    opacity: 0.15;
+}
+
+.cita-ejemplo::before {
+    content: "“";
+    top: 5px;
+    left: 5px;
+}
+
+.cita-ejemplo::after {
+    content: "”";
+    bottom: 5px;
+    right: 5px;
+}
+
+
+/* --- LÓGICA DEL INTERRUPTOR DE TEMA --- */
+
+input#color-toggle:checked + .color-toggle-label {
+    background-color: var(--color-verde-ok);
+}
+
+input#color-toggle:checked + .color-toggle-label::after {
+    transform: translateX(25px);
+}
+
+input#color-toggle:checked ~ form {
+    background-color: #e2f0e6;
+    border-color: #c3e6cb;
+}
+
+input#color-toggle:checked ~ form div.form-group:first-child {
+    background-color: #d4edda;
+    border-top-color: var(--color-verde-ok);
 }

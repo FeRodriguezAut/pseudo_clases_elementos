@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pseudo-clases y Elementos</title>
+    <title>Formulario Interactivo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
 
     <div class="theme-switcher">
         <input type="checkbox" id="color-toggle" class="color-toggle-checkbox">
         <label for="color-toggle" class="color-toggle-label"></label>
     </div>
 
-    <form action="">
+    <form action="" novalidate>
         <div class="form-content-wrapper">
             <div class="form-group">
                 <label for="Nombre">Nombre</label>
@@ -31,20 +40,30 @@
                 <label for="CorreoElectronico">Correo Electronico</label>
                 <input type="email" id="CorreoElectronico" name="CorreoElectronico" required>
             </div>
+            <div class="form-group">
+                <label for="Busqueda">Búsqueda</label>
+                <div class="input-with-icon">
+                    <input type="search" id="Busqueda" name="Busqueda" placeholder="Buscar...">
+                </div>
+            </div>
             <button type="submit">Enviar Registro</button>
         </div>
     </form>
 
-    <div class="enlace-ayuda">
-        <a href="#ayuda">¿Necesitas ayuda?</a>
+    <div class="enlace-secreto">
+        <a href="#mensaje-secreto">¿Necesitas ayuda?</a>
     </div>
 
-    <div id="ayuda" class="caja-ayuda">
-        <h3>¡Aquí está tu ayuda!</h3>
-        <p>La pseudo-clase <code>:target</code> de CSS se activa cuando el ID de un elemento coincide con el ancla (#) de la URL.</p>
-        <p>Esto te permite mostrar u ocultar elementos sin usar JavaScript. ¡Es genial para modales simples, pop-ups o secciones de FAQ!</p>
+    <div id="mensaje-secreto" class="caja-secreta">
+        <h3>¡Mensaje Secreto!</h3>
+        <p>Este cuadro aparece y desaparece usando solo CSS con la pseudo-clase <code>:target</code>.</p>
         <a href="#" class="cerrar">Cerrar</a>
     </div>
+
+    <blockquote class="cita-ejemplo">
+        <p>La web es más un invento social que técnico. Lo diseñé para que fuera un espacio social, un lugar donde la humanidad pudiera colaborar.</p>
+        <footer>— Tim Berners-Lee</footer>
+    </blockquote>
 
 </body>
 </html>
