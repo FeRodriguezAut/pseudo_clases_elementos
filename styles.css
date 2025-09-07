@@ -122,5 +122,5 @@ button[type="submit"] {
 
 /* Efecto al pasar el cursor por encima */
 button[type="submit"]:hover {
-    background-color: #218838; /* Un verde un poco más oscuro */
+    background-color: #03310d; /* Un verde un poco más oscuro */
 }
