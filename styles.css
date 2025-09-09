@@ -357,3 +357,36 @@ input#color-toggle:checked ~ form div.form-group:first-child {
     background-color: #d4edda;
     border-top-color: var(--color-verde-ok);
 }
+
+/* --- IMAGEN CON POSICIÓN RELATIVA --- */
+.imagen-relativa-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    background-image: url("https://via.placeholder.com/80");
+    background-size: cover;
+    border: 3px solid var(--color-primario);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+
+    /* --- El posicionamiento relativo --- */
+    position: relative;
+    top: -10px;
+    left: 100px;
+}
+old_string:
+/* --- IMAGEN CON POSICIÓN RELATIVA --- */
+.imagen-relativa-contenedor {
+    width: 600px;
+    margin: 20px auto;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    text-align: center; /* Para centrar la imagen si es más pequeña que el contenedor */
+}
+
+.imagen-relativa-contenedor img {
+    position: relative;
+    top: -20px;
+    left: 50px;
+    border: 3px solid var(--color-primario);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
