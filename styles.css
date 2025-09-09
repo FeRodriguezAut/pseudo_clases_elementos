@@ -384,14 +384,20 @@ input[type="email"] {
 
 /* --- TARJETA CON BOTÓN ABSOLUTO --- */
 .card {
+    /* Variables locales para este componente */
+    --card-padding: 20px;
+    --card-border-radius: 12px; /* Un radio de borde ligeramente más grande */
+    --card-color-texto: var(--color-texto-secundario);
+
     position: relative;
     width: 600px;
     margin: 40px auto;
-    padding: 20px;
+    padding: var(--card-padding);
     background-color: var(--color-superficie);
     border: 1px solid var(--color-borde);
-    border-radius: 8px;
+    border-radius: var(--card-border-radius);
     box-shadow: 0 4px 8px var(--color-sombra);
+    color: var(--card-color-texto); /* Usamos la variable local para el color del texto */
 }
 
 .card h3 {
