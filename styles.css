@@ -1,12 +1,39 @@
-/* --- VARIABLES GLOBALES --- */
+/* --- PALETA DE COLORES Y VARIABLES GLOBALES --- */
 :root {
+    /* Colores de Marca (no cambian con el tema) */
     --color-primario: #007bff;
     --color-primario-hover: #0056b3;
     --color-verde-ok: #28a745;
     --color-verde-ok-hover: #218838;
     --color-error: #e53e3e;
     --color-nav-fondo: #34495e;
+
+    /* Colores de UI para Tema Claro (por defecto) */
+    --color-fondo: #eef1f5;
+    --color-superficie: #ffffff;
+    --color-superficie-secundaria: #f0f8ff;
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #555555;
+    --color-borde: #dddddd;
+    --color-sombra: rgba(0,0,0,0.1);
+    --color-interruptor-fondo: #ccc;
+    --color-interruptor-control: white;
 }
+
+/* --- TEMA OSCURO --- */
+body.dark-mode {
+    /* Redefinimos las variables de UI para el tema oscuro */
+    --color-fondo: #121212;
+    --color-superficie: #1e1e1e;
+    --color-superficie-secundaria: #2a2a2a;
+    --color-texto-principal: #e0e0e0;
+    --color-texto-secundario: #aaaaaa;
+    --color-borde: #444444;
+    --color-sombra: rgba(255,255,255,0.1);
+    --color-interruptor-fondo: #555;
+    --color-interruptor-control: #333;
+}
+
 
 /* --- ESTILOS GENERALES --- */
 * {
@@ -17,21 +44,21 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #eef1f5;
-    color: #333;
-    transition: background-color 0.4s ease;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    transition: background-color 0.4s ease, color 0.4s ease;
     padding-top: 70px; 
 }
 
 /* --- NAVEGACIÓN PRINCIPAL --- */
 .main-nav {
     background-color: var(--color-nav-fondo);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    position: fixed; /* Fijo en la ventana */
+    box-shadow: 0 4px 8px var(--color-sombra);
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ancho completo */
-    z-index: 1000; /* Por encima de todo */
+    width: 100%;
+    z-index: 1000;
 }
 
 .main-nav ul {
@@ -70,7 +97,7 @@ body {
     display: inline-block;
     width: 50px;
     height: 25px;
-    background-color: #ccc;
+    background-color: var(--color-interruptor-fondo);
     border-radius: 15px;
     position: relative;
     cursor: pointer;
@@ -83,21 +110,30 @@ body {
     width: 21px;
     height: 21px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--color-interruptor-control);
     top: 2px;
     left: 2px;
     transition: transform 0.3s ease;
 }
+
+input#color-toggle:checked + .color-toggle-label {
+    background-color: var(--color-primario);
+}
+
+input#color-toggle:checked + .color-toggle-label::after {
+    transform: translateX(25px);
+}
+
 
 /* --- FORMULARIO --- */
 form {
     margin: 50px auto;
     width: 600px;
     padding: 30px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--color-sombra);
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -116,7 +152,9 @@ form {
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
     border-radius: 4px;
     font-size: 16px;
     transition: all 0.2s ease-in-out;
@@ -124,7 +162,7 @@ form {
 
 /* --- BOTÓN DE ENVIAR --- */
 button[type="submit"] {
-    position: relative; /* Contexto para el pseudo-elemento */
+    position: relative;
     width: 100%;
     padding: 12px;
     background-color: var(--color-verde-ok);
@@ -135,7 +173,7 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    transition: transform 0.1s ease-in-out; /* Transición para el movimiento */
+    transition: transform 0.1s ease-in-out;
 }
 
 button[type="submit"]::after {
@@ -147,39 +185,37 @@ button[type="submit"]::after {
     height: 100%;
     background-color: var(--color-verde-ok-hover);
     border-radius: 5px;
-    z-index: -1; /* Lo ponemos detrás del botón */
+    z-index: -1;
     transition: all 0.1s ease-in-out;
 }
 
 button[type="submit"]:hover {
-    transform: translate(-4px, -4px); /* Movemos el botón */
+    transform: translate(-4px, -4px);
 }
 
 button[type="submit"]:hover::after {
-    transform: translate(4px, 4px); /* Movemos la sombra para que parezca más grande */
+    transform: translate(4px, 4px);
 }
 
 button[type="submit"]:active {
-    transform: translate(0, 0); /* Al hacer clic, el botón vuelve a su sitio */
+    transform: translate(0, 0);
 }
 
 button[type="submit"]:active::after {
-    transform: translate(0, 0); /* La sombra también, creando un efecto plano */
+    transform: translate(0, 0);
 }
 
 
 /* --- ESTILOS DE PSEUDO-CLASES Y SELECTORES --- */
 
-/* 1. :first-child para el primer grupo */
 div.form-group:first-child {
     border-top: 2px solid var(--color-primario);
-    background-color: #f0f8ff;
+    background-color: var(--color-superficie-secundaria);
     margin: -30px -30px 12px -30px;
     padding: 20px 30px 12px 30px;
     border-radius: 8px 8px 0 0;
 }
 
-/* 2. :focus para el campo activo */
 input:focus {
     outline: none;
     border-color: var(--color-primario);
@@ -187,7 +223,6 @@ input:focus {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
 
-/* 3. :invalid para campos con error */
 input:invalid {
     border-color: var(--color-error);
 }
@@ -197,7 +232,6 @@ input:invalid:focus {
     box-shadow: 0 0 8px rgba(229, 62, 62, 0.6);
 }
 
-/* 4. Selector de atributo para tipo email */
 input[type="email"] {
     background-image: url('https://api.iconify.design/material-symbols/mail-outline.svg?color=%23888');
     background-repeat: no-repeat;
@@ -206,7 +240,6 @@ input[type="email"] {
     padding-right: 35px;
 }
 
-/* 5. :target para la caja de mensaje secreto */
 .enlace-secreto {
     text-align: center;
     margin: 20px auto;
@@ -221,7 +254,7 @@ input[type="email"] {
     padding: 20px;
     width: 600px;
     margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--color-sombra);
     text-align: center;
 }
 
@@ -244,7 +277,6 @@ input[type="email"] {
     background-color: var(--color-primario-hover);
 }
 
-/* 6. :only-of-type para elementos únicos */
 .caja-secreta h3:only-of-type {
     color: #c0392b;
     border-bottom: 2px solid #f1c40f;
@@ -252,13 +284,11 @@ input[type="email"] {
     margin-bottom: 15px;
 }
 
-/* 7. :first-of-type para el primer párrafo en la caja */
 .caja-secreta p:first-of-type {
     font-weight: bold;
-    color: #34495e;
+    color: var(--color-nav-fondo);
 }
 
-/* 8. ::before para añadir un icono a los títulos de los campos */
 .form-group > label::before {
     content: "► ";
     color: var(--color-primario);
@@ -266,7 +296,6 @@ input[type="email"] {
     margin-right: 6px;
 }
 
-/* 9. ::after para añadir una línea decorativa después de los párrafos */
 .caja-secreta p::after {
     content: "";
     display: block;
@@ -276,7 +305,6 @@ input[type="email"] {
     margin: 15px auto 0;
 }
 
-/* --- INPUT CON ICONO INTERNO --- */
 .input-with-icon {
     position: relative;
 }
@@ -287,8 +315,8 @@ input[type="email"] {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    pointer-events: none; /* Permite hacer clic a través del icono */
-    color: #888;
+    pointer-events: none;
+    color: var(--color-texto-secundario);
 }
 
 .input-with-icon input[type="search"] {
@@ -303,9 +331,9 @@ input[type="email"] {
     margin: 40px auto;
     padding: 20px 40px;
     border-left: 5px solid var(--color-primario);
-    background-color: #fdfdfd;
+    background-color: var(--color-superficie-secundaria);
     font-style: italic;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--color-sombra);
     border-radius: 8px;
 }
 
@@ -317,7 +345,7 @@ input[type="email"] {
     text-align: right;
     font-style: normal;
     font-weight: bold;
-    color: #555;
+    color: var(--color-texto-secundario);
 }
 
 .cita-ejemplo::before, .cita-ejemplo::after {
@@ -340,27 +368,6 @@ input[type="email"] {
     right: 5px;
 }
 
-
-/* --- LÓGICA DEL INTERRUPTOR DE TEMA --- */
-
-input#color-toggle:checked + .color-toggle-label {
-    background-color: var(--color-verde-ok);
-}
-
-input#color-toggle:checked + .color-toggle-label::after {
-    transform: translateX(25px);
-}
-
-input#color-toggle:checked ~ form {
-    background-color: #e2f0e6;
-    border-color: #c3e6cb;
-}
-
-input#color-toggle:checked ~ form div.form-group:first-child {
-    background-color: #d4edda;
-    border-top-color: var(--color-verde-ok);
-}
-
 /* --- IMAGEN CON POSICIÓN RELATIVA --- */
 .imagen-relativa-placeholder {
     width: 150px;
@@ -369,9 +376,7 @@ input#color-toggle:checked ~ form div.form-group:first-child {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100'%3E%3Crect width='100%' height='100%' fill='%23ddd'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='14' fill='%23777' text-anchor='middle' dy='.3em'%3E150x150%3C/text%3E%3C/svg%3E");
     background-size: cover;
     border: 3px solid var(--color-primario);
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-
-    /* --- El posicionamiento relativo --- */
+    box-shadow: 5px 5px 10px var(--color-sombra);
     position: relative;
     top: -10px;
     left: 100px;
@@ -379,14 +384,14 @@ input#color-toggle:checked ~ form div.form-group:first-child {
 
 /* --- TARJETA CON BOTÓN ABSOLUTO --- */
 .card {
-    position: relative; /* Ancestro posicionado */
+    position: relative;
     width: 600px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--color-sombra);
 }
 
 .card h3 {
@@ -395,7 +400,7 @@ input#color-toggle:checked ~ form div.form-group:first-child {
 }
 
 .delete-button {
-    position: absolute; /* Posicionamiento absoluto */
+    position: absolute;
     top: 10px;
     right: 10px;
     width: 30px;
@@ -405,7 +410,7 @@ input#color-toggle:checked ~ form div.form-group:first-child {
     border: none;
     border-radius: 50%;
     font-size: 20px;
-    line-height: 30px; /* Centra la 'x' verticalmente */
+    line-height: 30px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -418,7 +423,7 @@ input#color-toggle:checked ~ form div.form-group:first-child {
 
 /* --- EJEMPLO DE Z-INDEX --- */
 .contenedor-z {
-    position: relative; /* Contenedor para las cajas absolutas */
+    position: relative;
     width: 600px;
     height: 250px;
     margin: 40px auto;
@@ -427,7 +432,7 @@ input#color-toggle:checked ~ form div.form-group:first-child {
 }
 
 .caja-z {
-    position: absolute; /* Requisito para que z-index funcione */
+    position: absolute;
     width: 200px;
     height: 200px;
     display: flex;
@@ -437,42 +442,40 @@ input#color-toggle:checked ~ form div.form-group:first-child {
     color: white;
     font-weight: bold;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px var(--color-sombra);
 }
 
 .caja-roja {
-    background-color: #e53e3e; /* Color de error */
+    background-color: var(--color-error);
     top: 20px;
     left: 150px;
-    z-index: 1; /* Valor de z-index bajo */
+    z-index: 1;
 }
 
 .caja-azul {
-    background-color: #007bff; /* Color primario */
+    background-color: var(--color-primario);
     top: 50px;
     left: 250px;
-    z-index: 2; /* Valor de z-index alto, aparecerá encima */
+    z-index: 2;
 }
 
 /* --- EJEMPLO DE CENTRADO CON TRANSFORM --- */
 .contenedor-centrado {
-    position: relative; /* Contenedor de referencia */
+    position: relative;
     width: 600px;
     height: 300px;
     margin: 40px auto;
     border: 2px dashed var(--color-primario);
-    background-color: #f0f8ff;
+    background-color: var(--color-superficie-secundaria);
 }
 
 .card-transform-centrada {
-    width: 50%; /* Ancho relativo para demostrar que funciona sin dimensiones fijas */
+    width: 50%;
     padding: 20px;
-    background-color: rgb(147, 145, 235);
+    background-color: var(--color-superficie);
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(252, 251, 251, 0.2);
+    box-shadow: 0 5px 15px var(--color-sombra);
     text-align: center;
-
-    /* La magia del centrado */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -481,4 +484,26 @@ input#color-toggle:checked ~ form div.form-group:first-child {
 
 .card-transform-centrada h3 {
     color: var(--color-verde-ok);
+}
+
+/* --- EJEMPLO DE VARIABLE CON FALLBACK --- */
+.caja-fallback {
+    width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--color-borde);
+    /* Aquí usamos el fallback. --color-caja-especial no está definido en :root */
+    background-color: var(--color-caja-especial, #fff3e0);
+    /* Y aquí hacemos lo mismo para el color del texto */
+    color: var(--color-texto-especial, #8d6e63);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.caja-fallback code {
+    background-color: var(--color-superficie);
+    color: var(--color-texto-principal);
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid var(--color-borde);
 }
