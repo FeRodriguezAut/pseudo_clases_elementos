@@ -1,0 +1,150 @@
+/* Estilos generales */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 40px 0; /* Espacio para que se vea el fondo verde */
+    background-color: #2D8C6E; /* Fondo verde principal */
+    color: #333;
+}
+
+/* Contenedor blanco principal */
+.page-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Estilos del encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #2D8C6E;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave para el hover */
+}
+
+.phone-number {
+    font-weight: bold;
+    color: #2D8C6E;
+}
+
+/* Contenido principal */
+main {
+    display: flex;
+    padding: 40px 0;
+    gap: 60px; /* Más espacio entre columnas */
+}
+
+.info-column, .form-column {
+    flex: 1;
+}
+
+/* Columna de información */
+.info-column h1 {
+    font-size: 52px;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+.info-column .highlight {
+    color: #2D8C6E; /* Texto resaltado en verde */
+}
+
+.info-column p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 15px; /* Espacio entre botones */
+}
+
+/* Columna del formulario */
+.form-column {
+    background-color: #F8F8F8; /* Fondo ligeramente gris para el form */
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-column h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #2D8C6E;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none; /* Sin bordes */
+    background-color: #EAEAEA; /* Fondo gris para los inputs */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo de los botones */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #2D8C6E;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.button.primary {
+    background-color: #2D8C6E;
+    color: #fff;
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: #2D8C6E;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #fff; /* Texto blanco para que contraste con el fondo verde */
+}
+
+/* --- EFECTOS HOVER --- */
+
+nav a:hover {
+    color: #2D8C6E; /* El color del texto cambia al verde principal */
+}
+
+.button.primary:hover {
+    background-color: #247158; /* Se oscurece un poco */
+    border-color: #247158;
+}
+
+.button.secondary:hover {
+    background-color: #2D8C6E; /* Se rellena de color */
+    color: #fff;
+}
