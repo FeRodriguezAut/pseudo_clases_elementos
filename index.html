@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- titulo del Formulario -->
     <title>Formulario Interactivo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body> 
-
+<!-- Navegación Principal -->
     <nav class="main-nav">
         <ul>
             <li><a href="#">Inicio</a></li>
@@ -16,12 +17,12 @@
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
-
+<!-- Cambiador de Tema no sirvio nuca pero hay esta el ejecicio -->
     <div class="theme-switcher">
         <input type="checkbox" id="color-toggle" class="color-toggle-checkbox">
         <label for="color-toggle" class="color-toggle-label"></label>
     </div>
-
+<!-- Formulario de Registro -->
     <form action="" novalidate>
         <div class="form-content-wrapper">
             <div class="form-group">
@@ -46,26 +47,28 @@
                     <input type="search" id="Busqueda" name="Busqueda" placeholder="Buscar...">
                 </div>
             </div>
+            <!-- Boton de Enviar -->
             <button type="submit">Enviar Registro</button>
         </div>
     </form>
-
+<!-- Caja con mensaje secreto -->
     <div class="enlace-secreto">
         <a href="#mensaje-secreto">¿Necesitas ayuda?</a>
     </div>
-
+<!-- Caja que aparece y desaparece con CSS -->
     <div id="mensaje-secreto" class="caja-secreta">
         <h3>¡Mensaje Secreto!</h3>
         <p>Este cuadro aparece y desaparece usando solo CSS con la pseudo-clase <code>:target</code>.</p>
         <a href="#" class="cerrar">Cerrar</a>
     </div>
-
+<!-- Ejemplo de Posicionamiento Relativo -->
     <div class="imagen-relativa-placeholder"></div>
-
+<!-- Ejemplo de Cita con Estilo -->
     <blockquote class="cita-ejemplo">
         <p>La web es más un invento social que técnico. Lo diseñé para que fuera un espacio social, un lugar donde la humanidad pudiera colaborar.</p>
         <footer>— Tim Berners-Lee</footer>
     </blockquote>
+<!-- Ejemplo de Tarjeta con Botón Absoluto -->
 
     <div class="card">
         <button class="delete-button" aria-label="Eliminar">&times;</button>

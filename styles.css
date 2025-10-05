@@ -41,7 +41,7 @@ body.dark-mode {
     padding: 0;
     box-sizing: border-box;
 }
-
+/* Transiciones suaves para cambios de tema */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--color-fondo);
@@ -60,13 +60,13 @@ body {
     width: 100%;
     z-index: 1000;
 }
-
+/* Aseguramos que el nav use las variables actuales del tema */
 .main-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
 }
-
+/* Estilos para los enlaces de navegación */
 .main-nav a {
     display: block;
     padding: 15px 20px;
@@ -75,7 +75,7 @@ body {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-
+/* Cambio de color al pasar el ratón por encima */
 .main-nav a:hover {
     background-color: var(--color-primario);
 }
@@ -88,11 +88,11 @@ body {
     position: relative;
     z-index: 10;
 }
-
+/* Estilos para el interruptor de tema */
 .color-toggle-checkbox {
     display: none;
 }
-
+/* Estilos para la etiqueta que actúa como interruptor */
 .color-toggle-label {
     display: inline-block;
     width: 50px;
@@ -103,7 +103,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+/* Estilos para el círculo dentro del interruptor */
 .color-toggle-label::after {
     content: '';
     position: absolute;
@@ -115,16 +115,14 @@ body {
     left: 2px;
     transition: transform 0.3s ease;
 }
-
+/* Cambios de estilo cuando el interruptor está activado */
 input#color-toggle:checked + .color-toggle-label {
     background-color: var(--color-primario);
 }
-
+/* Cambios de estilo cuando el interruptor está activado */
 input#color-toggle:checked + .color-toggle-label::after {
     transform: translateX(25px);
 }
-
-
 /* --- FORMULARIO --- */
 form {
     margin: 50px auto;
@@ -136,18 +134,18 @@ form {
     box-shadow: 0 4px 8px var(--color-sombra);
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
-
+/* Estilos para los grupos de formulario */
 .form-group {
     margin-bottom: 12px;
 }
-
+/* Espaciado entre los grupos de formulario */
 .form-group > label {
     display: block;
     width: 100%;
     margin-bottom: 8px;
     font-weight: bold;
 }
-
+/* Estilos para los campos de entrada */
 .form-group > input {
     display: block;
     width: 100%;
@@ -159,7 +157,7 @@ form {
     font-size: 16px;
     transition: all 0.2s ease-in-out;
 }
-
+/* Estilos para los mensajes de error */
 /* --- BOTÓN DE ENVIAR --- */
 button[type="submit"] {
     position: relative;
@@ -175,7 +173,7 @@ button[type="submit"] {
     margin-top: 10px;
     transition: transform 0.1s ease-in-out;
 }
-
+/* Efecto de sombra para el botón */
 button[type="submit"]::after {
     content: "";
     position: absolute;
@@ -188,26 +186,25 @@ button[type="submit"]::after {
     z-index: -1;
     transition: all 0.1s ease-in-out;
 }
-
+/* Efecto al pasar el ratón por encima */
 button[type="submit"]:hover {
     transform: translate(-4px, -4px);
 }
-
+/* Efecto al hacer clic */
 button[type="submit"]:hover::after {
     transform: translate(4px, 4px);
 }
-
+/* Efecto al hacer clic */  
 button[type="submit"]:active {
     transform: translate(0, 0);
 }
-
+/* Efecto al hacer clic */  
 button[type="submit"]:active::after {
     transform: translate(0, 0);
 }
 
-
 /* --- ESTILOS DE PSEUDO-CLASES Y SELECTORES --- */
-
+/* Estilos para el primer grupo de formulario */
 div.form-group:first-child {
     border-top: 2px solid var(--color-primario);
     background-color: var(--color-superficie-secundaria);
@@ -215,23 +212,23 @@ div.form-group:first-child {
     padding: 20px 30px 12px 30px;
     border-radius: 8px 8px 0 0;
 }
-
+/* Estilos para el último grupo de formulario */
 input:focus {
     outline: none;
     border-color: var(--color-primario);
     border-width: 2px;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
-
+/* Estilos para el segundo grupo de formulario */
 input:invalid {
     border-color: var(--color-error);
 }
-
+/* Estilos para el segundo grupo de formulario */
 input:invalid:focus {
     border-color: var(--color-error);
     box-shadow: 0 0 8px rgba(229, 62, 62, 0.6);
 }
-
+/* Estilos para el tercer grupo de formulario */
 input[type="email"] {
     background-image: url('https://api.iconify.design/material-symbols/mail-outline.svg?color=%23888');
     background-repeat: no-repeat;
@@ -239,13 +236,13 @@ input[type="email"] {
     background-size: 16px;
     padding-right: 35px;
 }
-
+/* Estilos para el cuarto grupo de formulario */
 .enlace-secreto {
     text-align: center;
     margin: 20px auto;
     width: 600px;
 }
-
+/* Estilos para el enlace que muestra la caja secreta */
 .caja-secreta {
     display: none;
     background-color: #ffffe0;
@@ -257,11 +254,11 @@ input[type="email"] {
     box-shadow: 0 4px 8px var(--color-sombra);
     text-align: center;
 }
-
+/* Mostrar la caja secreta cuando el enlace es clicado */
 .caja-secreta:target {
     display: block;
 }
-
+/* Estilos para el botón de cerrar la caja secreta */
 .caja-secreta .cerrar {
     display: inline-block;
     margin-top: 15px;
@@ -272,30 +269,30 @@ input[type="email"] {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
+/* Cambiar el color del botón al pasar el ratón por encima */
 .caja-secreta .cerrar:hover {
     background-color: var(--color-primario-hover);
 }
-
+/* Estilos para el título de la caja secreta */
 .caja-secreta h3:only-of-type {
     color: #c0392b;
     border-bottom: 2px solid #f1c40f;
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
-
+/* Estilos para el primer párrafo dentro de la caja secreta */
 .caja-secreta p:first-of-type {
     font-weight: bold;
     color: var(--color-nav-fondo);
 }
-
+/* Añadir un icono antes de cada etiqueta en el formulario */
 .form-group > label::before {
     content: "► ";
     color: var(--color-primario);
     font-size: 0.9em;
     margin-right: 6px;
 }
-
+/* Añadir una línea decorativa después del primer párrafo en la caja secreta */ 
 .caja-secreta p::after {
     content: "";
     display: block;
@@ -304,10 +301,11 @@ input[type="email"] {
     background-color: #f1c40f;
     margin: 15px auto 0;
 }
-
+/* Estilos para el campo de búsqueda con un icono */    
 .input-with-icon {
     position: relative;
 }
+/* Icono dentro del campo de búsqueda */
 
 .input-with-icon::before {
     content: "🔍";
@@ -318,11 +316,10 @@ input[type="email"] {
     pointer-events: none;
     color: var(--color-texto-secundario);
 }
-
+/* Espaciado para que el texto no se superponga con el icono */
 .input-with-icon input[type="search"] {
     padding-left: 35px;
 }
-
 
 /* --- ESTILOS PARA BLOQUE DE CITA --- */
 .cita-ejemplo {
@@ -336,18 +333,18 @@ input[type="email"] {
     box-shadow: 0 4px 8px var(--color-sombra);
     border-radius: 8px;
 }
-
+/* Espaciado entre párrafos dentro de la cita */
 .cita-ejemplo p {
     margin-bottom: 10px;
 }
-
+/* Estilos para el autor de la cita */
 .cita-ejemplo footer {
     text-align: right;
     font-style: normal;
     font-weight: bold;
     color: var(--color-texto-secundario);
 }
-
+/* Comillas decorativas usando pseudo-elementos */
 .cita-ejemplo::before, .cita-ejemplo::after {
     position: absolute;
     color: var(--color-primario);
@@ -355,19 +352,18 @@ input[type="email"] {
     line-height: 1;
     opacity: 0.15;
 }
-
+/* Comillas abiertas */
 .cita-ejemplo::before {
     content: "“";
     top: 5px;
     left: 5px;
 }
-
+/* Comillas cerradas */
 .cita-ejemplo::after {
     content: "”";
     bottom: 5px;
     right: 5px;
 }
-
 /* --- IMAGEN CON POSICIÓN RELATIVA --- */
 .imagen-relativa-placeholder {
     width: 150px;
@@ -388,7 +384,7 @@ input[type="email"] {
     --card-padding: 20px;
     --card-border-radius: 12px; /* Un radio de borde ligeramente más grande */
     --card-color-texto: var(--color-texto-secundario);
-
+/* Usamos una variable local para el color del texto */
     position: relative;
     width: 600px;
     margin: 40px auto;
@@ -399,12 +395,12 @@ input[type="email"] {
     box-shadow: 0 4px 8px var(--color-sombra);
     color: var(--card-color-texto); /* Usamos la variable local para el color del texto */
 }
-
+/* Espaciado entre párrafos dentro de la tarjeta */
 .card h3 {
     margin-bottom: 10px;
     color: var(--color-primario);
 }
-
+/*  Estilos para el botón de eliminar */ 
 .delete-button {
     position: absolute;
     top: 10px;
@@ -421,7 +417,7 @@ input[type="email"] {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
+/* Efecto al pasar el ratón por encima */
 .delete-button:hover {
     background-color: #cc0000;
     transform: scale(1.1);
@@ -436,7 +432,7 @@ input[type="email"] {
     border: 2px dashed #666;
     padding: 10px;
 }
-
+/* Estilos para las cajas dentro del contenedor */
 .caja-z {
     position: absolute;
     width: 200px;
@@ -450,14 +446,14 @@ input[type="email"] {
     border-radius: 8px;
     box-shadow: 0 5px 15px var(--color-sombra);
 }
-
+/* Estilos para la primera caja */
 .caja-roja {
     background-color: var(--color-error);
     top: 20px;
     left: 150px;
     z-index: 1;
 }
-
+/* Estilos para la segunda caja */
 .caja-azul {
     background-color: var(--color-primario);
     top: 50px;
@@ -474,7 +470,7 @@ input[type="email"] {
     border: 2px dashed var(--color-primario);
     background-color: var(--color-superficie-secundaria);
 }
-
+/* Estilos para la tarjeta centrada */
 .card-transform-centrada {
     width: 50%;
     padding: 20px;
@@ -487,7 +483,7 @@ input[type="email"] {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+/* Estilos para el título dentro de la tarjeta centrada */
 .card-transform-centrada h3 {
     color: var(--color-verde-ok);
 }
@@ -505,7 +501,7 @@ input[type="email"] {
     color: var(--color-texto-especial, #8d6e63);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
-
+/* Estilos para el código dentro de la caja con fallback */
 .caja-fallback code {
     background-color: var(--color-superficie);
     color: var(--color-texto-principal);
