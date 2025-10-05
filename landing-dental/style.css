@@ -26,13 +26,13 @@ header {
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
-
+/* Logo */
 .logo {
     font-weight: bold;
     font-size: 24px;
     color: #2D8C6E;
 }
-
+/* Navegación */
 nav a {
     margin-left: 25px;
     text-decoration: none;
@@ -40,7 +40,7 @@ nav a {
     font-weight: bold;
     transition: color 0.3s ease; /* Transición suave para el hover */
 }
-
+/* Número de teléfono */
 .phone-number {
     font-weight: bold;
     color: #2D8C6E;
@@ -64,17 +64,17 @@ main {
     line-height: 1.2;
     margin-top: 0;
 }
-
+/* Resaltar ciertas palabras */
 .info-column .highlight {
     color: #2D8C6E; /* Texto resaltado en verde */
 }
-
+/* Párrafos */
 .info-column p {
     font-size: 16px;
     color: #666;
     margin-bottom: 30px;
 }
-
+/* Contenedor de botones */
 .buttons-container {
     display: flex;
     gap: 15px; /* Espacio entre botones */
@@ -86,13 +86,13 @@ main {
     padding: 30px;
     border-radius: 8px;
 }
-
+/* Título del formulario */
 .form-column h2 {
     margin-top: 0;
     text-align: center;
     color: #2D8C6E;
 }
-
+/* Estilos del formulario */
 form input {
     width: 100%;
     padding: 12px;
@@ -115,12 +115,12 @@ form input {
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
 }
-
+/*  Botones primario y secundario */
 .button.primary {
     background-color: #2D8C6E;
     color: #fff;
 }
-
+/*  Botón secundario */
 .button.secondary {
     background-color: transparent;
     color: #2D8C6E;
@@ -138,12 +138,12 @@ footer {
 nav a:hover {
     color: #2D8C6E; /* El color del texto cambia al verde principal */
 }
-
+/*  Efecto hover para los botones */
 .button.primary:hover {
     background-color: #247158; /* Se oscurece un poco */
     border-color: #247158;
 }
-
+/*  Efecto hover para el botón secundario */
 .button.secondary:hover {
     background-color: #2D8C6E; /* Se rellena de color */
     color: #fff;
